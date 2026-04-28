@@ -88,6 +88,32 @@ ALLOWLIST_WALLETS=
 
 Do not deploy `.env.local`, `data/`, or `contracts/settings/*.toml`. The local JSON store is useful for development, but production deployments should use a durable database because serverless filesystems are ephemeral.
 
+## Mainnet Runbook
+
+Do not switch the app to mainnet until the mainnet contract exists. The safe order is:
+
+1. Create a fresh mainnet deployer wallet and fund it with enough STX for deployment fees.
+2. Configure `contracts/settings/Mainnet.toml` locally. Never commit that file.
+3. Generate and apply a mainnet deployment plan from `contracts/`.
+4. Copy the deployed `SP...access-pass` contract address.
+5. Update hosted environment variables:
+
+```bash
+NEXT_PUBLIC_STACKS_NETWORK=mainnet
+NEXT_PUBLIC_STACKS_CONTRACT_ADDRESS=SP...
+NEXT_PUBLIC_STACKS_CONTRACT_NAME=access-pass
+NEXT_PUBLIC_STACKS_CONTRACT_FUNCTION=claim
+ADMIN_WALLETS=SP...
+```
+
+6. Redeploy the web app and test with a small mainnet transaction.
+
+Mainnet notes:
+
+- Use a fresh wallet whose seed phrase has never been pasted into chat, logs, or a repo.
+- Keep allowlist/admin data in a hosted database before using the app seriously.
+- Contract calls cost real STX on mainnet.
+
 ## Production Notes
 
 - Keep all eligibility and duplicate-claim checks on the server.

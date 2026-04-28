@@ -281,7 +281,7 @@ export function ClaimPanel() {
         <StateMessage
           icon={<Clock3 aria-hidden />}
           title="Transaction pending"
-          body="Your contract call was submitted and is waiting for testnet confirmation."
+          body={`Your contract call was submitted and is waiting for ${stacksNetwork} confirmation.`}
           action={
             <a className={styles.secondaryAction} href={getExplorerUrl(pendingTxId)} target="_blank" rel="noreferrer">
               View transaction <ExternalLink size={16} aria-hidden />
@@ -306,7 +306,7 @@ export function ClaimPanel() {
           <div>
             <p className={styles.statusLine}>Eligible</p>
             <h3>Your Stacks claim is ready.</h3>
-            <p>{contractId ? "Submit a testnet contract call to record this claim on Stacks." : "Sign a wallet message to prove control of this address and record the claim."}</p>
+            <p>{contractId ? `Submit a ${stacksNetwork} contract call to mint your access pass record.` : "Sign a wallet message to prove control of this address and record the claim."}</p>
           </div>
           <button className={styles.claimButton} type="button" onClick={claim} disabled={claiming}>
             {claiming ? <Loader2 className={styles.spin} size={18} aria-hidden /> : <Ticket size={18} aria-hidden />}

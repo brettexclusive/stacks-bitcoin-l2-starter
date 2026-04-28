@@ -3,8 +3,8 @@ import styles from "./drop-preview.module.css";
 
 export function DropPreview() {
   const imageUrl = process.env.NEXT_PUBLIC_APP_IMAGE_URL;
-  const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "sBTC Access Pass";
-  const symbol = process.env.NEXT_PUBLIC_APP_SYMBOL ?? "SBTC";
+  const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Stacks Access Pass";
+  const symbol = process.env.NEXT_PUBLIC_APP_SYMBOL ?? "PASS";
 
   return (
     <div className={styles.preview} aria-label={`${appName} preview`}>
