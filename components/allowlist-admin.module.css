@@ -1,0 +1,181 @@
+.adminShell {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(23, 29, 36, 0.72);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.header span,
+.emptyState {
+  color: var(--muted);
+}
+
+.kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.formRow,
+.unlockRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.unlockRow {
+  grid-template-columns: auto;
+}
+
+.formRow input {
+  min-width: 0;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: var(--panel-soft);
+  color: var(--text);
+  outline: none;
+}
+
+.formRow input:focus {
+  border-color: var(--accent);
+}
+
+.formRow button,
+.unlockRow button,
+.walletRow button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #07120e;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.formRow button {
+  padding: 0 18px;
+}
+
+.formRow button:disabled,
+.unlockRow button:disabled,
+.walletRow button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.errorRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
+  color: var(--warning);
+}
+
+.lockRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 24px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.lockRow span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lockRow button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: var(--panel-soft);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.emptyState {
+  padding: 24px;
+}
+
+.walletList {
+  display: grid;
+}
+
+.walletRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.walletRow:last-child {
+  border-bottom: 0;
+}
+
+.walletRow span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.walletRow button {
+  width: 44px;
+  background: var(--panel-soft);
+  color: var(--text);
+}
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .header,
+  .formRow,
+  .unlockRow {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .header,
+  .lockRow {
+    flex-direction: column;
+  }
+}

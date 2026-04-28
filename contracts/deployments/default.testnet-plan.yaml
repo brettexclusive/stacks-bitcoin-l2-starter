@@ -1,0 +1,17 @@
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: https://api.testnet.hiro.so
+bitcoin-node: http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332
+plan:
+  batches:
+  - id: 0
+    transactions:
+    - transaction-type: contract-publish
+      contract-name: access-pass
+      expected-sender: ST2RNSCDPDNDR8MGV44VNETW2AVXSZPN646D2FQ73
+      cost: 1833914
+      path: contracts\access-pass.clar
+      anchor-block-only: true
+      clarity-version: 4
+    epoch: '3.3'
